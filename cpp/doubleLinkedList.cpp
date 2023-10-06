@@ -21,10 +21,10 @@ class dll{
 	node*head;
 	dll(){head=nullptr;}
 	 
-	insert_head(int);
-	insert_tail(int);
-	insert_at(int,int);
-	dellist(int);
+    void insert_head(int);
+	void insert_tail(int);
+	void insert_at(int,int);
+	void dellist(int);
 };
 
 void dll::dellist(int pos)
@@ -32,7 +32,7 @@ void dll::dellist(int pos)
 	int len=0;
 	node*temp=head;
 	while(temp!=nullptr){
-		temp=temp->next;
+		temp=temp->right;
 		len++;
 	}
 	if(len<pos){cout<<"index out of 007"<<endl;return;	}
@@ -45,7 +45,7 @@ void dll::dellist(int pos)
 	}
 
 	while(pos-->1){
-		temp=temp->next;
+		temp=temp->right;
 	}
 	temp->left->right=temp->right;
 	if(pos!=len)
@@ -82,6 +82,12 @@ void dll::insert_at(int pos, int data)
 		insert_head(data);
 		return;
 	}
+	int len=0;
+	node*temp=head;
+	while(temp!=nullptr){
+		temp=temp->right;
+		len++;
+	}
 	if(pos==len){
 		insert_tail(data);
 		return;
@@ -92,7 +98,7 @@ void dll::insert_at(int pos, int data)
 		return;
 	}
 	
-	node*temp=head;
+	temp=head;
 	while(pos-->2){
 		temp=temp->right;
 	}
