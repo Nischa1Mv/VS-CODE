@@ -70,10 +70,35 @@ void dll::insert_tail(int data)
 		head=p;
 	}
 	node*temp=head;
-	while(temp->next!=nullptr){
-		temp=temp->next;
+	while(temp->right!=nullptr){
+		temp=temp->right;
 	}
 	temp->right=p;
 	p->left=temp;
 }
 void dll::insert_at(int pos, int data)
+{
+	if(pos==1){
+		insert_head(data);
+		return;
+	}
+	if(pos==len){
+		insert_tail(data);
+		return;
+	}
+	node*p= new node(data);
+	if(head==nullptr){
+		head=p;
+		return;
+	}
+	
+	node*temp=head;
+	while(pos-->2){
+		temp=temp->right;
+	}
+	p->right=temp->right;
+	p->right->left=p;
+	p->left=temp;
+	temp->right=p;
+	
+}
