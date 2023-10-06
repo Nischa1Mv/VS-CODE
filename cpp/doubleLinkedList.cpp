@@ -120,15 +120,15 @@ void dll::printlist(){
 	cout<<"NULL"<<endl;
 }
 int main(){
-    dll d;
+    	dll d;
 	d.insert_head(10);
 	d.insert_tail(20);
 	d.insert_tail(30);
 	d.insert_tail(40);
 	d.insert_tail(50);
 	d.insert_tail(60);
-    d.insert_at(2,20);
-    d.dellist(2);
+      	d.insert_at(2,20);
+    	d.dellist(2);
 	d.printlist();
 	
 }
