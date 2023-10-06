@@ -59,6 +59,7 @@ void dll::insert_head(int data)
 	node*p= new node(data);
 	if(head==nullptr){
 		head=p;
+		return;
 	}
 	head->left=p;
 	p->right=head;
@@ -69,6 +70,7 @@ void dll::insert_tail(int data)
 	node*p= new node(data);
 	if(head==nullptr){
 		head=p;
+		return;
 	}
 	node*temp=head;
 	while(temp->right!=nullptr){
@@ -118,12 +120,15 @@ void dll::printlist(){
 	cout<<"NULL"<<endl;
 }
 int main(){
-	insert_head(10);
-	insert_tail(30);
-	insert_tail(40);
-	insert_tail(50);
-	insert_tail(60);
-	insert_at(2,20);
-	printlist();
+    dll d;
+	d.insert_head(10);
+	d.insert_tail(20);
+	d.insert_tail(30);
+	d.insert_tail(40);
+	d.insert_tail(50);
+	d.insert_tail(60);
+    d.insert_at(2,20);
+    d.dellist(2);
+	d.printlist();
 	
 }
