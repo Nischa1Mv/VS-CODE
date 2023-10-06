@@ -53,3 +53,27 @@ void dll::dellist(int pos)
 	delete temp;
 }
 
+void dll::insert_head(int data)
+{
+	node*p= new node(data);
+	if(head==nullptr){
+		head=p;
+	}
+	head->left=p;
+	p->right=head;
+	head=p;
+}
+void dll::insert_tail(int data)
+{
+	node*p= new node(data);
+	if(head==nullptr){
+		head=p;
+	}
+	node*temp=head;
+	while(temp->next!=nullptr){
+		temp=temp->next;
+	}
+	temp->right=p;
+	p->left=temp;
+}
+void dll::insert_at(int pos, int data)
