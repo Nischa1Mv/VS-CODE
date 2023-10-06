@@ -25,6 +25,7 @@ class dll{
 	void insert_tail(int);
 	void insert_at(int,int);
 	void dellist(int);
+	void printlist();
 };
 
 void dll::dellist(int pos)
@@ -106,5 +107,23 @@ void dll::insert_at(int pos, int data)
 	p->right->left=p;
 	p->left=temp;
 	temp->right=p;
+	
+}
+void dll::printlist(){
+	node*temp=head;
+	while(temp!=nullptr){
+		cout<<temp->data<<"<=>";
+		temp=temp->right;
+	}
+	cout<<"NULL"<<endl;
+}
+int main(){
+	insert_head(10);
+	insert_tail(30);
+	insert_tail(40);
+	insert_tail(50);
+	insert_tail(60);
+	insert_at(2,20);
+	printlist();
 	
 }
