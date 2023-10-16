@@ -34,7 +34,7 @@ public:
 };
 void cll::insert_end(int data)
 {
-    node *p = new node();
+    node *p = new node(data);
     if (head == nullptr)
     {
         head = p;
@@ -59,41 +59,50 @@ void cll::insert_begin(int data)
         return;
     }
     node *temp = head;
-    // iterate to last node
-    while (temp->next != head)
-    {
-        temp = temp->next;
-    }
-    temp->next = head;
+    temp->next = p;
     p->next = head;
     head = p;
 }
 void cll::insert_at(int pos, int data)
 {
+    node *temp = head;
+    // finding length
+    int len = 0;
+    while (temp != head)
+    {
+        temp = temp->next;
+        len++;
+    }
+    // checks out of range
+    if (len < pos)
+    {
+        cout << "index out of range" << endl;
+        return;
+    }
+    // pos at 1
+    if (pos == 1)
+    {
+        insert_begin(data);
+    }
+    // pos at end
+    if (len == pos)
+    {
+        insert_end(data);
+        return;
+    }
     node *p = new node(data);
     if (head == nullptr)
     {
         head = p;
         head->next = head;
-        delete (p);
         return;
     }
-    node *temp = head;
-    int len = 0;
-    while (temp->next != head)
-    {
-        temp = temp->next;
-        len++;
-    }
-    while (len < pos)
-    {
-        cout << "index out of range" << endl;
-    }
+    temp = head;
     while (pos-- > 2)
     {
         temp = temp->next;
     }
-    p->next = temp->next->next;
+    p->next = temp->next;
     temp->next = p;
 }
 void cll ::delete_head()
@@ -103,12 +112,15 @@ void cll ::delete_head()
         cout << "list is empty";
         return;
     }
-    node *temp = head;
-    head->next = head;
     node *temp1 = head;
     head = head->next;
+    node *temp = head;
+    while (temp->next != temp1)
+    {
+        temp = temp->next;
+    }
     temp->next = head;
-    delete temp1;
+    delete (temp1);
 }
 void cll ::delete_tail()
 {
@@ -123,9 +135,8 @@ void cll ::delete_tail()
         temp = temp->next;
     }
     node *temp1 = temp->next;
-    free(temp1);
     delete (temp1);
-    temp->next = nullptr;
+    temp->next = head;
 }
 void cll ::delete_at(int pos)
 {
@@ -170,7 +181,12 @@ void cll::printlist()
 int main()
 {
     cll c;
-    c.insert_begin(10);
-    c.insert_end(120);
+    c.insert_begin(50);
+    c.insert_end(40);
+    c.insert_end(30);
+    c.insert_end(20);
+    c.insert_end(10);
+    c.delete_head();
+    c.delete_tail();
     c.printlist();
 }
