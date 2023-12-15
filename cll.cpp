@@ -59,12 +59,21 @@ void cll::insert_begin(int data)
         return;
     }
     node *temp = head;
+    while (temp->next != head)
+    {
+        temp = temp->next;
+    }
     temp->next = p;
     p->next = head;
     head = p;
 }
 void cll::insert_at(int pos, int data)
 {
+    // pos at 1
+    if (pos == 1)
+    {
+        insert_begin(data);
+    }
     node *temp = head;
     // finding length
     int len = 0;
@@ -73,22 +82,10 @@ void cll::insert_at(int pos, int data)
         temp = temp->next;
         len++;
     }
-    // checks out of range
-    if (len < pos)
-    {
-        cout << "index out of range" << endl;
-        return;
-    }
-    // pos at 1
-    if (pos == 1)
-    {
-        insert_begin(data);
-    }
     // pos at end
     if (len == pos)
     {
         insert_end(data);
-        return;
     }
     node *p = new node(data);
     if (head == nullptr)
@@ -152,14 +149,21 @@ void cll ::delete_at(int pos)
         temp = temp->next;
         len++;
     }
+    if (pos == 1)
+    {
+        delete_head();
+    }
+    if (len == pos)
+    {
+        delete_tail();
+    }
     temp = head;
-    while (pos-- > 1)
+    while (pos-- > 2)
     {
         temp = temp->next;
     }
     node *temp1 = temp->next;
-    temp->next = nullptr;
-    free(temp1);
+    temp->next = temp1->next;
     delete (temp1);
 }
 void cll::printlist()
@@ -182,11 +186,8 @@ int main()
 {
     cll c;
     c.insert_begin(50);
-    c.insert_end(40);
     c.insert_end(30);
     c.insert_end(20);
-    c.insert_end(10);
-    c.delete_head();
-    c.delete_tail();
+    c.insert_at(2, 40);
     c.printlist();
 }
