@@ -1,11 +1,13 @@
-import java.util.*;
+package Java.Threadexp;
+
+
 class class1 extends Thread {
     public void run() {
         System.out.println("Java");
     }
 }
 
-class class2 extends Thread {
+class threadexp extends Thread {
     public void run() {
         System.out.println("vignan");
     }
@@ -14,7 +16,7 @@ class class2 extends Thread {
 
         class1 a = new class1();
         a.start();
-        class2 b = new class2();
+        threadexp b = new threadexp();
         b.start();
         System.out.println(b.isAlive());
     }
