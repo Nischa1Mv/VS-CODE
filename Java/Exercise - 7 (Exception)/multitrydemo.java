@@ -14,6 +14,6 @@ class multitrydemo {
         System.out.println("After the catch statement");
     }
 }
-// Output:java.lang.ArrayIndexOutOfBoundsException:10
-// After the catch
-// statement
+// Output:java.lang.ArrayIndexOutOfBoundsException:Index 10 out of bounds for
+// length 2
+// After the catch statement
