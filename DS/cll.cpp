@@ -146,11 +146,11 @@ void cll ::delete_at(int pos)
     }
     node *temp = head;
     int len = 0;
-    while (temp != head)
+    do
     {
         temp = temp->next;
         len++;
-    }
+    } while (temp != head);
     if (pos == 1)
     {
         delete_head();
