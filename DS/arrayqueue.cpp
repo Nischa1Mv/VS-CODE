@@ -42,8 +42,8 @@ void queue::dequeue()
     if (front = rear)
     {
         cout << a[front] << "is removed " << endl;
-        return;
         front = rear = -1;
+        return;
     }
     cout << a[front] << " is removed" << endl;
     front += 1;

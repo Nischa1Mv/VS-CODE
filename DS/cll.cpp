@@ -73,19 +73,21 @@ void cll::insert_at(int pos, int data)
     if (pos == 1)
     {
         insert_begin(data);
+        return;
     }
     node *temp = head;
     // finding length
     int len = 0;
-    while (temp != head)
+    do
     {
         temp = temp->next;
         len++;
-    }
+    } while (temp != head);
     // pos at end
     if (len == pos)
     {
         insert_end(data);
+        return;
     }
     node *p = new node(data);
     if (head == nullptr)
