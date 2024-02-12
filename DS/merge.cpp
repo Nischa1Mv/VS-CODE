@@ -28,7 +28,7 @@ void merge(int *arr, int l, int mid, int h)
         a[k] = arr[j];
         k++, j++;
     }
-    for (int x = 0; x < k; x++)
+    for (int x = l; x < k; x++)
     {
         arr[l + x] = a[x];
     }
