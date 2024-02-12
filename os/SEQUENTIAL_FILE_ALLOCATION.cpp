@@ -35,7 +35,7 @@ x:
         cout << "The file is not allocated \n";
     }
 
-    cout << "Do you want to enter more file(Yes - 1/No - 0)";
+    cout << "Do you want to enter more file(Yes - 1/No - 0) \n";
     cin >> c;
 
     if (c == 1)
@@ -43,3 +43,19 @@ x:
     else
         return 0;
 }
+
+// Files Allocated are :
+// Enter starting block and length of files: 3 5
+// 3       1
+// 4       1
+// 5       1
+// 6       1
+// 7       1
+// Do you want to enter more file(Yes - 1/No - 0)
+// 1
+// Enter starting block and length of files: 10 3
+// 10      1
+// 11      1
+// 12      1
+// Do you want to enter more file(Yes - 1/No - 0)
+// 0

@@ -75,3 +75,14 @@ int main()
     delete temp;
     return 0;
 }
+// Enter no of files   :2
+
+// Enter file name 1 :file1
+// Enter no of blocks in file 1 :3
+// Enter the blocks of the file :1 2 3
+
+// Enter file name 2 :file2
+// Enter no of blocks in file 2 :4
+// Enter the blocks of the file :4 5 6 7
+
+// Enter the file name to be searched -- file2

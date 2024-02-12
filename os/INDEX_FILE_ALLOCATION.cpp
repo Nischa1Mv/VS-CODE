@@ -50,3 +50,19 @@ int main()
 
     return 0;
 }
+
+// Enter no of files :3
+
+// Enter file name 1 :file1
+// Enter no of blocks in file 1 :4
+// Enter the blocks of the file :1 2 3 4
+
+// Enter file name 2 :file2
+// Enter no of blocks in file 2 :3
+// Enter the blocks of the file :5 6 7
+
+// Enter file name 3 :file3
+// Enter no of blocks in file 3 :2
+// Enter the blocks of the file :8 9
+
+// Enter the file name to be searched -- file2
