@@ -1,55 +1,50 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>>
-#include<conio.h>
+#include <iostream>
+#include <cstring>
+
+using namespace std;
 
 struct fileTable
-
 {
-
-char name[20];
-int nob, blocks[30];
-
- 
-}ft[30];
+    char name[20];
+    int nob, blocks[30];
+} ft[30];
 
 int main()
-
 {
+    int i, j, n;
+    char s[20];
 
-int i, j, n; char s[20]; 
+    cout << "Enter no of files :";
+    cin >> n;
+    for (i = 0; i < n; i++)
+    {
+        cout << "\nEnter file name " << i + 1 << " :";
+        cin >> ft[i].name;
 
-printf("Enter no of files :"); scanf("%d",&n); for(i=0;i<n;i++)
-{
+        cout << "Enter no of blocks in file " << i + 1 << " :";
+        cin >> ft[i].nob;
 
-printf("\nEnter file name %d :",i+1); scanf("%s",ft[i].name);
+        cout << "Enter the blocks of the file :";
+        for (j = 0; j < ft[i].nob; j++)
+            cin >> ft[i].blocks[j];
+    }
 
-printf("Enter no of blocks in file %d :",i+1); scanf("%d",&ft[i].nob);
+    cout << "\nEnter the file name to be searched -- ";
+    cin >> s;
 
-printf("Enter the blocks of the file :"); for(j=0;j<ft[i].nob;j++)
-scanf("%d",&ft[i].blocks[j]);
+    for (i = 0; i < n; i++)
+        if (strcmp(s, ft[i].name) == 0)
+            break;
 
+    if (i == n)
+        cout << "\nFile Not Found";
+    else
+    {
+        cout << "\nFILE NAME NO OF BLOCKS BLOCKS OCCUPIED";
+        cout << "\n " << ft[i].name << "\t\t" << ft[i].nob << "\t";
+        for (j = 0; j < ft[i].nob; j++)
+            cout << ft[i].blocks[j] << ", ";
+    }
+
+    return 0;
 }
-
-printf("\nEnter the file name to be searched -- "); scanf("%s",s);
-
-for(i=0;i<n;i++)
-
-if(strcmp(s, ft[i].name)==0) break;
-
-if(i==n)
-
-printf("\nFile Not Found");
-
-else
-{
-
-printf("\nFILE NAME NO OF BLOCKS BLOCKS OCCUPIED"); printf("\n %s\t\t%d\t",ft[i].name,ft[i].nob); for(j=0;j<ft[i].nob;j++)
-
-printf("%d, ",ft[i].blocks[j]);
-
-}
-
-getch();
-}							
-
